@@ -1,13 +1,16 @@
 <script setup>
   import { ref, computed } from 'vue'
   
+  // Define o estado do jogador atual (X ou O) usando o reativo "ref".
   const player = ref('X')
+  // Define o estado do tabuleiro como uma matriz 3x3 vazia usando "ref".
   const board = ref([
     ['', '', ''],
     ['', '', ''],
     ['', '', '']
   ])
 
+  // Função para calcular o vencedor com base nas combinações vencedoras possíveis.
   const CalculateWinner = (board) => {
     const lines = [[0, 1, 2],[3, 4, 5],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8],[0, 4, 8],[2, 4, 6]]
 
@@ -22,8 +25,10 @@
     return null
   }
 
+  // Calcula o vencedor com base no estado atual do tabuleiro usando "computed".
   const winner = computed(() => CalculateWinner(board.value.flat()))
 
+  // Função para fazer uma jogada no tabuleiro.
   const makeMove = (x, y) => {
     if (winner.value) return
 
@@ -34,6 +39,7 @@
     player.value = player.value === 'X' ? 'O' : 'X'
   }
 
+  // Função para redefinir o jogo para o estado inicial.
   const resetGame = () => {
     board.value = [
       ['', '', ''],
@@ -52,6 +58,8 @@
     <h3>Player {{ player }}'s turn</h3>
 
     <div class="game">
+      <!-- Cria os espaços do jogo e lida com as jogadas -->
+      <!-- Usa ternários para exibir 'X' ou 'O' nos espaços ocupados -->
       <div class="c1 gameSpace" @click="makeMove(0, 0)"> {{ board[0][0] === 'X' ? 'X': board[0][0] === 'O' ? 'O': '' }} </div>
       <div class="c2 gameSpace" @click="makeMove(0, 1)"> {{ board[0][1] === 'X' ? 'X': board[0][1] === 'O' ? 'O': '' }} </div>
       <div class="c3 gameSpace" @click="makeMove(0, 2)"> {{ board[0][2] === 'X' ? 'X': board[0][2] === 'O' ? 'O': '' }} </div>
@@ -63,7 +71,9 @@
       <div class="c9 gameSpace" @click="makeMove(2, 2)"> {{ board[2][2] === 'X' ? 'X': board[2][2] === 'O' ? 'O': '' }} </div>
     </div>
 
+    <!-- Exibe o vencedor quando houver um -->
     <h3 class="winner" v-if="winner">Player {{ winner }} wins</h3>
+    <!-- Botão para redefinir o jogo -->
     <button @click="resetGame">RESET</button>
   </main>
 </template>
