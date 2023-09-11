@@ -1,7 +1,22 @@
-# Vue 3 + Vite
+<h1>TicTacToe</h1>
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<p>Just a Simple TicTacToe game made with Vue.js.</p>
+<img src="./public/emptyGame.png" alt="emptyGame" />
 
-## Recommended IDE Setup
+<p>First the "X" player plays and next is the "O" turn</p>
+<img src="./public/turns.png" alt="turns" />
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<p>When someone wins the game ends and on the bottom of the board shows the winner</p>
+<img src="./public/winner.png" alt="winner" />
+
+<p>You can either reset the game by clicking the "RESET" button</p>
+<img src="./public/reset.png" alt="reset" />
+
+
+<h1>Run the Project and Play</h1>
+<p>To run and play the game you need to do this steps</p>
+<ul>
+  <li>Clone this repository</li>
+  <li>Open the code on your IDE</li>
+  <li>Run the code by using 'npm run dev'</li>
+</ul>
